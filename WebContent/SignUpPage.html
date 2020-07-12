@@ -1,0 +1,99 @@
+<!doctype>
+<html>
+  <head>
+    <title>Login form</title>
+    <script>
+       var divs=new Array();
+       divs[0]="errfname";
+       divs[1]="errlname";
+       function validate()
+      {
+      var x = document.getElementById("fname");
+       x.value = x.value.toUpperCase();
+       var y = document.getElementById("lname");
+       y.value = y.value.toUpperCase();
+        var inputs=new Array();
+        inputs[0]=document.getElementById("fname").value;
+        inputs[1]=document.getElementById("lname").value;
+        var errors=new Array();
+        errors[0]="<span style='color:red';>Please enter first name</span>";
+        errors[1]="<span style='color:red';>Please enter last name</span>";
+  
+        for(i in inputs)
+         {
+          var div=divs[i];
+          var errormessage=errors[i];
+          if(inputs[i] == ""|| inputs[i]==null)
+             document.getElementById(div).innerHTML=errormessage;
+          else
+             document.getElementById(div).innerHTML="OK!";
+            }
+          }
+function change1()
+{
+  var z=document.getElementById("age");
+  if(z.value<18){
+  z.value='';
+  alert("Under Age!!");
+  }
+}
+function change2()
+{
+  var p=document.getElementById("phone number");
+  if((p.value.length!=10) || (isNaN(p.value))){
+       alert("Enter a valid phone number");
+       p.value=''; 
+     }
+}
+function change3()
+{
+  var b=document.getElementById("mail");
+  if(b.value.indexOf('@')<1 || (b.value.lastIndexOf('.')<b.value.indexOf('@')+2)  ||  (b.value.lastIndexOf('.')+2>=b.value.length)){
+       alert("Enter a valid email");
+       b.value=''; 
+     }
+}
+      </script>
+   </head>
+   <body background="C:\Users\DELL\Desktop\bhavani\epam\epamtaskpic.jpg">
+     <form>
+<center>
+        <table>
+            <tr>
+               <th colspan=3><b>SignUp</b></th>
+            </tr>
+            <tr>
+              <td><b>First Name:</b></td>
+              <td><input type="text" name="fname" id="fname" onkeyup="validate()"/></td>
+              <td><div id="errfname"></div></td>
+           </tr>
+           <tr>
+              <td><b>Last Name:</b></td>
+              <td><input type="text" name="lname" id="lname" onkeyup="validate()"/></td>
+              <td><div id="errlname"></div></td>
+          </tr>
+          <tr>
+             <td><b>Age:</b></td>
+             <td><input type="text" name = "age" id = "age" onchange = "change1()" /></td>
+          </tr>
+             <tr>
+             <td><b>Phone Number:</b></td>
+             <td><input type="text" name = "phone number" id = "phone number" onchange = "change2()"  /></td>
+          </tr>
+           <tr>
+             <td><b>Email Id:</b></td>
+             <td><input type="email" name = "mail" id = "mail"  onchange = "change3()"/></td>
+          </tr>
+<tr>
+<td><input type="checkbox" name = "terms&conditions" value = "1"\> I accept to all terms and conditions.</td>
+</tr>
+      <tr>
+<td><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name ="b2"  value = "Cancel" ></td>
+<td><br><input type="button" name ="b1"  value = "SignUp" ></td>
+</tr>
+      
+       </table>
+  </center>
+   </form>
+   </body>
+</html>
